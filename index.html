@@ -60,7 +60,7 @@
         });
 
         function generateBarcode() {
-            var inputData = "https://forms.gle/Guj6bBHvc1YhkfFJA"; // Nilai input statis
+            var inputData = ""; // Nilai input statis
             var url = 'https://api.qrserver.com/v1/create-qr-code/?data=' + inputData + '&size=200x200';
             document.getElementById('barcode').innerHTML = '<img src="' + url + '" alt="barcode">';
         }
