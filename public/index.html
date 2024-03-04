@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Barcode Generator</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #E5E5E5; /* Warna abu-abu muda */
+        }
+
+        .container {
+            max-width: 800px;
+        }
+
+        .barcode-container {
+            background-color: #FFFFFF;
+            border-radius: 12px;
+            box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .barcode-title {
+            font-size: 1.75rem;
+            font-weight: 600;
+            color: #4A90E2; /* Warna biru seperti WhatsApp */
+            margin-bottom: 1.5rem;
+        }
+
+        .copyright {
+            font-size: 0.75rem;
+            color: #4A5568; /* Warna abu-abu tua */
+            margin-top: 1rem;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 1rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container mx-auto mt-12">
+        <div class="barcode-container p-6">
+            <h2 class="barcode-title text-center">ABSEN PEGAWAI</h2>
+            <div id="barcode" class="flex justify-center"></div>
+            <p class="text-center mt-4">Jika Anda tidak dapat mengakses QR code, <a href="https://forms.gle/Guj6bBHvc1YhkfFJA" target="_blank" class="text-blue-500">klik di sini</a>.</p>
+        </div>
+        <p class="copyright mt-6">&copy; Fakultas Ilmu Komputer, Universitas Tomakaka</p>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            generateBarcode();
+        });
+
+        function generateBarcode() {
+            var inputData = "https://forms.gle/Guj6bBHvc1YhkfFJA"; // Nilai input statis
+            var url = 'https://api.qrserver.com/v1/create-qr-code/?data=' + inputData + '&size=200x200';
+            document.getElementById('barcode').innerHTML = '<img src="' + url + '" alt="barcode">';
+        }
+    </script>
+</body>
+
+</html>
